@@ -1,8 +1,11 @@
-using Microsoft.OpenApi.Models;
+using Dealership.Data;
+using Microsoft.OpenApi;
+using Vehicle.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddScoped<VehicleContext>();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -11,6 +14,7 @@ builder.Services.AddSwaggerGen(c =>
         Version = "♾️"
     });
 });
+
 
 var app = builder.Build();
 
@@ -23,5 +27,6 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API v1");
     });
 }
+app.VehicleRoutes();
 
 app.Run();
