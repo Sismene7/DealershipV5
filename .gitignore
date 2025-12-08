@@ -77,5 +77,4 @@ nunit-*.xml
 
 #--- Logs e Cache do Entity Framework Core ---
 ef.log
-dealership.db
 
