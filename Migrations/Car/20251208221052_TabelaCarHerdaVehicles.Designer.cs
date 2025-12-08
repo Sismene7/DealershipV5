@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DealershipV5.Migrations
 {
-    [DbContext(typeof(VehicleContext))]
-    [Migration("20251205171238_Initial")]
-    partial class Initial
+    [DbContext(typeof(CarContext))]
+    [Migration("20251208221052_TabelaCarHerdaVehicles")]
+    partial class TabelaCarHerdaVehicles
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,7 +19,7 @@ namespace DealershipV5.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.0");
 
-            modelBuilder.Entity("Vehicle.Models.VehicleModel", b =>
+            modelBuilder.Entity("Car.Models.CarModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,7 +28,7 @@ namespace DealershipV5.Migrations
                     b.Property<int>("Ano")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("Cambio")
+                    b.Property<int>("Combustivel")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cor")
@@ -46,6 +46,9 @@ namespace DealershipV5.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("NumeroDePortas")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Potencia")
                         .HasColumnType("INTEGER");
 
@@ -53,12 +56,15 @@ namespace DealershipV5.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Transmissao")
+                        .HasColumnType("INTEGER");
+
                     b.Property<float>("Valor")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vehicles");
+                    b.ToTable("Car");
                 });
 #pragma warning restore 612, 618
         }

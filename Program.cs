@@ -1,6 +1,6 @@
 using Dealership.Data;
 using Microsoft.OpenApi;
-using Vehicle.Routes;
+using Car.Routes;
 using Motorcycle.Routes;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<VehicleContext>(options =>
+builder.Services.AddDbContext<CarContext>(options =>
     options.UseSqlite("Data Source=dealership.db"));
 
 builder.Services.AddDbContext<MotorcycleContext>(options =>
@@ -35,7 +35,7 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API v1");
     });
 }
-app.VehicleRoutes();
+app.CarRoutes();
 app.MotorcycleRoutes();
 
 app.Run();

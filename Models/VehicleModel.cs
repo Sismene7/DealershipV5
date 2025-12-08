@@ -1,8 +1,20 @@
-public class VehicleModel
-    {
-
-
-    public VehicleModel(int id, string nome, string marca, int ano, int potencia, float km, string tipo, float valor, string cor, bool cambio)
+namespace Vehicle.Models;
+public abstract class VehicleModel
+{
+    public VehicleModel
+    (
+        int id, 
+        string nome, 
+        string marca, 
+        int ano, 
+        int potencia, 
+        float km, 
+        string tipo, 
+        float valor, 
+        string cor, 
+        TipoCombustivel combustivel,
+        TipoTransmissao transmissao
+    ) 
     {
         Id = id;
         Nome = nome;
@@ -13,9 +25,11 @@ public class VehicleModel
         Tipo = tipo;
         Valor = valor;
         Cor = cor;
-        Cambio = cambio;
+        Combustivel = combustivel;
+        Transmissao = transmissao;
     }
-
+//Tipocombustivel = TipoCombustivel; 
+//public TipoCombustivel Tipocombustivel { get; set; }
     public int Id { get; set; }
     public string Nome { get; set; }
     public string Marca { get; set; }
@@ -25,5 +39,23 @@ public class VehicleModel
     public string Tipo { get; set; }
     public float Valor { get; set; }
     public string Cor { get; set; }
-    public bool Cambio { get; set; }
+    public TipoCombustivel Combustivel { get; set; }
+    public TipoTransmissao  Transmissao { get; set; }
+}
+public enum TipoCombustivel
+{
+    Gasolina,
+    Diesel,
+    Etanol,
+    Flex,
+    Eletrico,
+    Hibrido
+}
+public enum TipoTransmissao
+{
+    Manual,
+    Automatico,
+    SemiAutomatico,
+    DuplaEmbreagem
+
 }
