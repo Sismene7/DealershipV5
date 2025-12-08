@@ -1,18 +1,18 @@
 using Dealership.Data;
-using Vehicle.Models;
+using Motorcycle.Models;
 
-namespace Vehicle.Routes;
+namespace Motorcycle.Routes;
 
-public static class VehicleRoute
+public static class MotorcycleRoute
 {
-    public static void VehicleRoutes(this WebApplication app)
+    public static void MotorcycleRoutes(this WebApplication app)
     {
-        var route = app.MapGroup(prefix:"Vehicle");
+        var route = app.MapGroup(prefix: "Motorcycle");
 
-        route.MapPost(pattern:"",
-        async (VehicleContext context, VehicleRequest req) =>
+        route.MapPost(pattern: "",
+        async (MotorcycleContext context, MotorcycleRequest req) =>
         {
-    var vehicle = new VehicleModel(
+    var Motorcycle = new MotorcycleModel(
             req.id,
             req.nome,
             req.marca,
@@ -22,10 +22,14 @@ public static class VehicleRoute
             req.tipo,
             req.valor,
             req.cor,
-            req.cambio );
-            await context.AddAsync(vehicle);
+            req.cilindradas,
+            req.cilindros,
+            req.torque,
+            req.partidaEletrica,
+            req.abs);
+            await context.AddAsync(Motorcycle);
             await context.SaveChangesAsync();
-        } );
+        });
 
     }
 }

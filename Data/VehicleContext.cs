@@ -5,11 +5,7 @@ namespace Dealership.Data;
 
 public class VehicleContext : DbContext
 {
-    public DbSet<VehicleModel> Vehicles { get; set; }
+    public VehicleContext(DbContextOptions<VehicleContext> options) : base(options) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {   
-        optionsBuilder.UseSqlite(connectionString: "Data Source=dealership.sqlite");
-        base.OnConfiguring(optionsBuilder);
-    }
+    public DbSet<VehicleModel> Vehicles { get; set; }
 }

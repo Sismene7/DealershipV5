@@ -1,11 +1,19 @@
 using Dealership.Data;
 using Microsoft.OpenApi;
 using Vehicle.Routes;
+using Motorcycle.Routes;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<VehicleContext>();
+builder.Services.AddDbContext<VehicleContext>(options =>
+    options.UseSqlite("Data Source=dealership.db"));
+
+builder.Services.AddDbContext<MotorcycleContext>(options =>
+    options.UseSqlite("Data Source=dealership.db"));
+
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -23,10 +31,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.DocumentTitle = "Concessionária Mídia";
+        c.DocumentTitle = "Concessionária Estagiários Mídia";
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "Minha API v1");
     });
 }
 app.VehicleRoutes();
+app.MotorcycleRoutes();
 
 app.Run();
