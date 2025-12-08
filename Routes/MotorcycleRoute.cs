@@ -33,15 +33,3 @@ public static class MotorcycleRoute
 
     }
 }
-/*
-            id : 1,
-            nome : "Siena",
-            marca : "Fiat",
-            ano : 2014,
-            potencia : 112,
-            km : 9000.860f,
-            tipo : "Sedan",
-            valor : 67000.890f,
-            cor : "Preto",
-            cambio : false
-*/

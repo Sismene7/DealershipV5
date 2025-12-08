@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Vehicle.Models;
+
 
 namespace Dealership.Data;
 

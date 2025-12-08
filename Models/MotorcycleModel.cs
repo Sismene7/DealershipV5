@@ -16,7 +16,7 @@ public class MotorcycleModel
         int cilindros,
         double torque,
         bool partidaEletrica,
-        bool abs)
+        bool abs )
     {
         Id = id;
         Nome = nome;
