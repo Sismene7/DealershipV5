@@ -55,3 +55,25 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+#=======================================================
+
+#ADIÇÕES PARA IGNORAR ARQUIVOS DE BANCO DE DADOS E CACHE (SOLUÇÃO DE CONFLITOS SQLite)
+
+#=======================================================
+
+*.db
+*.sqlite
+
+#Ignora os arquivos de Log e Memória Compartilhada do SQLite (IMPEDE BLOQUEIOS NO GIT PULL)
+
+#Arquivos que surgem com DBeaver ou app rodando: dealership.sqlite-shm, dealership.sqlite-wal, etc.
+*-shm
+*-wal
+
+#SQL Server LocalDB files
+*.mdf
+*.ldf
+
+#--- Logs e Cache do Entity Framework Core ---
+ef.log
